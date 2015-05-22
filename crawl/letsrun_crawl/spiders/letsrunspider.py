@@ -13,15 +13,6 @@ class LetsRunSpider(CrawlSpider):
     start_urls = ['http://www.letsrun.com/forum']
 
     rules = (
-        # Rule(LinkExtractor(allow=('letsrun.com/forum',),
-        #                    deny=(
-        #                        'letsrun.com/forum/post',
-        #                        'letsrun.com/forum/forum.php?board=1',
-        #                        'letsrun.com/forum/report',
-        #                        )
-        # )),
-        # Rule(LinkExtractor(allow=('letsrun.com/forum/flat_read.php?',)),
-        #      callback='parse_post')
         Rule(SgmlLinkExtractor(
             allow=('forum/flat_read.php',)),
             callback='parse_posts',
@@ -44,8 +35,8 @@ class LetsRunSpider(CrawlSpider):
             item['post_author'] = post.xpath(
                 './/*[@class="author"]//text()')[0].extract()
 
-            item["post_text"] = post.xpath(
-                './/span[contains(@id, "intelliTXT")]/text()')[0].extract()
+            item["post_text"] = ' '.join(post.xpath(
+                './/span[contains(@id, "intelliTXT")]/text()').extract())
 
             subject_xpath = './/span[contains(@class, "subject_line")]/text()'
             item['subject'] = post.xpath(subject_xpath)[0].extract()
