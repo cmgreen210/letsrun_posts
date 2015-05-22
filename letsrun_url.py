@@ -17,3 +17,8 @@ def get_soup(url):
 def get_all_links(soup):
     links = soup.findAll('a')
     return [l['href'] for l in links]
+
+
+def filter_links(links, match=_form_domain_test):
+    return list(set([l for l in links if match in l]))
+
