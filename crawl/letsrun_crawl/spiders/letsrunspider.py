@@ -42,16 +42,25 @@ class LetsRunSpider(CrawlSpider):
             item['post_id'] = id
 
             item['post_author'] = post.xpath(
-                './/*[@class="author"]//text()').extract()
+                './/*[@class="author"]//text()')[0].extract()
 
             item["post_text"] = post.xpath(
-                './/span[contains(@id, "intelliTXT")]//text()').extract()
+                './/span[contains(@id, "intelliTXT")]//text()')[0].extract()
 
-            item['subject'] = post.xpath(
-                './/span[contains(@class, "subject_line")]//text()').extract()
+            subject_xpath = './/span[contains(@class, "subject_line")]//text()'
+            item['subject'] = post.xpath(subject_xpath)[0].extract()
 
             item['timestamp'] = post.xpath(
-                './/span[contains(@class, "timestamp")]//text()').extract()
+                './/span[contains(@class, "timestamp")]//text()')[0].extract()
+
+            reply_to = post.xpath(
+                './/span[contains(@class,"in_reply_to")]/a//text()')
+            item['reply_to_author'] = None if len(reply_to) == 0 else reply_to[0].extract()
+
+            reply_url = post.xpath(
+                './/span[contains(@class,"in_reply_to")]/a//@href')
+
+            item['in_reply_url'] = None if len(reply_url) == 0 else reply_url[0].extract()
 
             items.append(item)
         return items
