@@ -16,3 +16,8 @@ NEWSPIDER_MODULE = 'letsrun_crawl.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'letsrun_crawl (+http://www.yourdomain.com)'
+
+
+RETRY_ENABLED = False
+COOKIES_ENABLED = False
+REDIRECT_ENABLED = False

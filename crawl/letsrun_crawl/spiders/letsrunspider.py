@@ -1,7 +1,6 @@
 import scrapy
 from scrapy.contrib.spiders import CrawlSpider, Rule
-from scrapy.contrib.linkextractors import LinkExtractor
-from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
+from scrapy.contrib.linkextractors.lxmlhtml import LxmlLinkExtractor
 from letsrun_crawl.items import LetsrunPostItem
 from itertools import izip
 import re
@@ -13,7 +12,7 @@ class LetsRunSpider(CrawlSpider):
     start_urls = ['http://www.letsrun.com/forum']
 
     rules = (
-        Rule(SgmlLinkExtractor(
+        Rule(LxmlLinkExtractor(
             allow=('forum/flat_read.php',)),
             callback='parse_posts',
             follow=True
