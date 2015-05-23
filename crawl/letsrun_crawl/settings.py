@@ -21,3 +21,12 @@ NEWSPIDER_MODULE = 'letsrun_crawl.spiders'
 RETRY_ENABLED = False
 COOKIES_ENABLED = False
 REDIRECT_ENABLED = False
+
+# Mongo settings
+ITEM_PIPELINES = {
+    'letsrun_crawl.pipelines.LetsrunMongoPipeline': 100
+}
+
+MONGODB_URI = 'mongodb://localhost:27017'
+MONGODB_DATABASE = 'letsrun'
+MONGODB_COLLECTION = 'posts'
