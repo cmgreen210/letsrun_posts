@@ -32,7 +32,7 @@ class LetsRunSpider(CrawlSpider):
             item['post_id'] = id
 
             item['post_author'] = post.xpath(
-                './/*[@class="author"]//text()')[0].extract()
+                './/*[@class="author"]/text()')[0].extract()
 
             item["post_text"] = ' '.join(post.xpath(
                 './/span[contains(@id, "intelliTXT")]/text()').extract())
