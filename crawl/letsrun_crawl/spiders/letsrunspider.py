@@ -17,6 +17,10 @@ class LetsRunSpider(CrawlSpider):
             callback='parse_posts',
             follow=True
         ),
+        Rule(LxmlLinkExtractor(
+            allow=('forum/forum.php?board=',)),
+            follow=True
+        )
     )
 
     def parse_posts(self, response):
