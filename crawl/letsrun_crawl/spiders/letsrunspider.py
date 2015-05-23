@@ -18,14 +18,13 @@ class LetsRunSpider(CrawlSpider):
             follow=True
         ),
         Rule(LxmlLinkExtractor(
-            allow=('forum/forum.php?board=',)),
-            follow=True
-        )
+            allow=('forum/forum.php\?board=',)),
+            follow=True,
+        ),
     )
 
     def parse_posts(self, response):
         items = []
-
         posts = response.xpath('//*[@class="post"]')
         post_ids = response.xpath('//ul/a/@name').extract()
         thread = re.findall('thread=([0-9]+)', response.url)[0]

@@ -13,6 +13,7 @@ BOT_NAME = 'letsrun_crawl'
 SPIDER_MODULES = ['letsrun_crawl.spiders']
 NEWSPIDER_MODULE = 'letsrun_crawl.spiders'
 
+LOG_FILE = 'scrapy.log'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'letsrun_crawl (+http://www.yourdomain.com)'
@@ -21,6 +22,8 @@ NEWSPIDER_MODULE = 'letsrun_crawl.spiders'
 RETRY_ENABLED = False
 COOKIES_ENABLED = False
 REDIRECT_ENABLED = False
+
+DEPTH_LIMIT = 0
 
 # Mongo settings
 ITEM_PIPELINES = {
