@@ -3,3 +3,6 @@
 *.csv
 *.json
 *.log
+output/*
+spark/scala/project/*
+spark/scala/target/*
