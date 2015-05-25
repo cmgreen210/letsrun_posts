@@ -39,4 +39,4 @@ def create_reply_graph(path, posts, auth2id):
 def write_dictionary(path, d, sep=u'\t'):
     with codecs.open(path, 'w', 'utf8') as fp:
         for k, v in d.iteritems():
-            fp.write(u'{0}'.format(k) + sep + u'{0}'.format(v))
+            fp.write(u'{0}'.format(k) + sep + u'{0}'.format(v) + u'\n')
