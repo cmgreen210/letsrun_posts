@@ -14,4 +14,4 @@ auth2idx, idx2auth = create_author_map(posts)
 write_dictionary(pjoin(outdir, 'auth2idx.txt'), auth2idx)
 write_dictionary(pjoin(outdir, 'idx2auth.txt'), idx2auth)
 
-create_reply_graph(pjoin(outdir, 'post_graph.txt'), posts, auth2idx)
+create_reply_graph(pjoin(outdir, 'post_graph.csv'), posts, auth2idx)

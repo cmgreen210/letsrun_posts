@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets
 
 object LetsRunGraph {
     def main(args: Array[String]) {
-        val graph_path = "/home/christopher/letsrun_posts/output/post_graph.txt";
+        val graph_path = "/home/christopher/letsrun_posts/output/post_graph.csv";
         val author_path = "/home/christopher/letsrun_posts/output/idx2auth.txt";
         val rank_out = "/home/christopher/letsrun_posts/output/rank.txt";
 
