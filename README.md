@@ -16,8 +16,7 @@ to a text file using the `mongoexport` command.
 
 ## Graph Analysis
 Now to find the most "important" posters, i.e. those with the highest
-PageRank run the shell script `run.sh`. After scraping about 6 years
-worth of data the top results look like:
+PageRank run the shell script `run.sh`. After scraping about 6 years worth of data (~350,000 unique posts) the top results look like:
 
 (Flagpole,254.68371549897591)
                                                                                       
